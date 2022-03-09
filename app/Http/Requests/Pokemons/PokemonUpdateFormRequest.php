@@ -10,7 +10,7 @@ use Illuminate\Http\Response;
 use Illuminate\Contracts\Validation\Validator;
 
 
-class PokimonUpdateFormRequest extends FormRequest
+class PokemonUpdateFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
