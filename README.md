@@ -1,5 +1,5 @@
 
-# Task Management App 
+# Pokemon App 
 > A Pokemon app that allows users to view and edit pokemons
 
 ## Description
