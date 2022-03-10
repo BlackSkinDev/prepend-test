@@ -1,24 +1,30 @@
-import React from 'react';
+import * as React from "react";
+import PokemonList from './Pokemons/PokemonList';
+import NotFound from './NotFound.js'
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Container} from 'react-bootstrap'
 
-function App() {
+const App = ()=> {
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">App Component</div>
-
-                        <div className="card-body">App</div>
-                    </div>
-                </div>
+        <div>
+            <Router>
+            <div>
+                <Container className="p-4">
+                    <h1>Prepend Pokemon List</h1>
+                <Routes>
+                    <Route exact path="/"element={<PokemonList/>}/>
+                    {/* <Route exact path="*" element={<NotFound/>}/> */}
+                </Routes>
+                </Container>
             </div>
+            </Router>
         </div>
     );
 }
-
 export default App;
-
 if (document.getElementById('app')) {
     ReactDOM.render(<App />, document.getElementById('app'));
 }
+
+
