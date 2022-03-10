@@ -29,3 +29,51 @@ export const fetchPokemons = async ()=>{
       }
     }
   }
+
+
+  //get all pokemon
+export const fetchSinglePokemon = async (id)=>{
+    try{
+
+      const { status, data:{data} } =   await Axios.get(`${API_URL}/pokemons/${id}`,
+      { headers: {"Authorization" : `Basic ${token}`} }
+    );
+
+      return {
+        status,
+        data
+      };
+    }
+    catch(error){
+      const {data:{message},status}=error.response
+      return {
+          status,
+          message,
+      }
+    }
+  }
+
+
+//update pokemon
+export const updatePokemon = async (payload,id)=>{
+    try{
+
+      const { status, data:{data,message} } =   await Axios.put(`${API_URL}/pokemons/${id}`,payload,
+      { headers: {"Authorization" : `Basic ${token}`} }
+    );
+      return {
+        status,
+        data,
+        message,
+      };
+    }
+    catch(error){
+      const {data:{message,data},status}=error.response
+      return {
+          status,
+          message,
+          data
+      }
+    }
+  }
+

@@ -1,6 +1,5 @@
 import './styles/pokemons-style.css'
 import  {fetchPokemons} from './service';
-import { useNavigate } from 'react-router-dom';
 import {Table,Link} from 'react-bootstrap'
 
 
@@ -12,8 +11,7 @@ const  PokemonList = (props)=> {
     const [pokemons,setPokemons] = useState([]);
     const [error,setError] = useState();
 
-    const navigate = useNavigate();
-
+  
     useEffect(() => {
         const getPokemons = async () => {
             const response = await fetchPokemons()
@@ -58,7 +56,7 @@ const  PokemonList = (props)=> {
                         <td>{pokemon.base_experience}</td>
                         <td>{pokemon.is_default}</td>
                         <td>
-                            <a href='/hey' className="btn btn-primary">View</a>
+                            <a href={`/data-view/pokemons/${pokemon.id}`} className="btn btn-primary">View</a>
                         </td>
                     </tr>
                 )

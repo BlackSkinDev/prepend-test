@@ -1,6 +1,7 @@
 import * as React from "react";
 import PokemonList from './Pokemons/PokemonList';
-import PokemonList from './Pokemons/PokemonList';
+import ShowPokemon from './Pokemons/ShowPokemon';
+import EditPokemon from './Pokemons/EditPokemon';
 import NotFound from './NotFound.js'
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -16,6 +17,7 @@ const App = ()=> {
                 <Routes>
                     <Route exact path="/"element={<PokemonList/>}/>
                     <Route exact path={`/data-view/pokemons/:id`}  element={<ShowPokemon/>}/>
+                    <Route exact path={`/data-view/edit/:id`}  element={<EditPokemon/>}/>
                     <Route exact path="*" element={<NotFound/>}/>
                 </Routes>
                 </Container>
