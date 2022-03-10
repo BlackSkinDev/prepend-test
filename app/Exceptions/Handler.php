@@ -64,7 +64,7 @@ class Handler extends ExceptionHandler
         }
 
         if ($e instanceof UnauthorizedHttpException) {
-            return response()->json(['message'=>$e->getMessage()],Response::HTTP_UNAUTHORIZED);
+            return response()->json(['message'=>'Oops! Invalid Auth Credentials'],Response::HTTP_UNAUTHORIZED);
         }
 
 
