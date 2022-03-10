@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middlware'=>'auth:api'],function(){
+    Route::namespace('Api')->group(function () {
+        // api resource route for pokemons
+        Route::apiResource('pokemons',PokemonController::class);
+
+    });
 });

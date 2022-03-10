@@ -1,61 +1,82 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Pokemon App 
+> A Pokemon app that allows users to view and edit pokemons
 
-## About Laravel
+## Description
+This project was built with React,Laravel and MYSQL .
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+##### Integration testing :
+- PHPUnit (https://phpunit.de)
+- Faker (https://github.com/fzaninotto/Faker)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Running the App
+To run the App, you must have:
+- **PHP** (https://www.php.net/downloads)
+- **PostgreSQL** (https://www.mysql.com/downloads/)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Clone the repository to your local machine using the command
+```console
+$ git clone *remote repository url*
+```
 
-## Learning Laravel
+Create an `.env` file using the command. You can use this config or change it for your purposes.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```console
+$ cp .env.example .env
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+### Environment
+Configure environment variables in `.env` for dev environment based on your MYSQL database configuration
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```  
+DB_CONNECTION=<YOUR_MYSQL_TYPE>
+DB_HOST=<YOUR_MYSQL_HOST>
+DB_PORT=<YOUR_MYSQL_PORT>
+DB_DATABASE=<YOUR_DB_NAME>
+DB_USERNAME=<YOUR_DB_USERNAME>
+DB_PASSWORD=<YOUR_DB_PASSWORD>
+MIX_APP_USER_USERNAME=  - Basic Auth username
+MIX_APP_USER_PASSWORD=  - - Basic Auth password
+MIX_API_URL= < Base url for Laravel API e.g  http://localhost:8000/api  or http://app.test/api (Provided you use Laravel Valet)**>
+```
 
-### Premium Partners
+### LARAVEL INSTALLATION
+Install the dependencies and start the server and run app setup command
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+```console
+$ composer install
+$ php artisan key:generate
+$ php artisan project:init - This seeds database and perform other important operations
+$ php artisan serve - If you use valet just hit (http://app.test/api i.e your valet link)
+```
 
-## Contributing
+### REACT INSTALLATION
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Install the dependencies and start the server
 
-## Security Vulnerabilities
+```console
+$ npm install && npm run dev
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## Basic Auth Credentials
+- Username - dev_afeez 
+- Password - password
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+You should be able to visit your app at your laravel app base url e.g  http://localhost:8000  or http://app.test (Provided you use Laravel Valet).
+
+
+## Assumptions/Suggestions
+While creating the app the following Assumptions were made
+- I ordered Pokemons using the "Order" attribute (when being returned to frontend). I also assumed order property is unique for all pokemons. 
+-  I assumed species_id is a sort of foreign key, Hence, I didn't make it editable  
+-  Since I ordered pokemons being sent to frontend using "order" column, I made it not editable. Updating the order is however acheivable but with it's own logic. An example way is to implement drag and drop such that pokemons excahnge order numbers 
+- I also assumed is_order is a tinyInteger
+- I also implemented an artisan command that reads the pokemons csv data provided and import the data inside it into my db (I limited the pokemons returned to 100).
+- In the future, For nice user experience,Pagination can be implemented to easily navigate through the pokemons
+
