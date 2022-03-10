@@ -38,7 +38,7 @@ class StorePokemons extends Command
      */
     public function handle()
     {
-        $file_path= storage_path('app/public/pokemon.csv');
+        $file_path= public_path('pokemon.csv');
         $file = fopen($file_path,"r");
 
         // go through file content and extract needed data into an array

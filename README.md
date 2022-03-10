@@ -77,6 +77,6 @@ While creating the app the following Assumptions were made
 -  I assumed species_id is a sort of foreign key, Hence, I didn't make it editable  
 -  Since I ordered pokemons being sent to frontend using "order" column, I made it not editable. Updating the order is however acheivable but with it's own logic. An example way is to implement drag and drop such that pokemons excahnge order numbers 
 - I also assumed is_order is a tinyInteger
-- I also implemented an artisan command that reads the pokemons csv data provided and import the data inside it into my db (I limited the pokemons returned to 100).
+- I also implemented an artisan command that reads the pokemons csv data provided and import the data inside it into my db (I limited the pokemons returned to 100) For this to work, Please download the pokemon.csv that was provided.
 - In the future, For nice user experience,Pagination can be implemented to easily navigate through the pokemons
 
