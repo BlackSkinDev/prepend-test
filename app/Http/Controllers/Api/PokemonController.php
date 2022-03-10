@@ -21,7 +21,7 @@ class PokemonController extends Controller
     // get all pokemons
     public function index(){
         // limit the number of pokemons to 10
-        $pokemons = PokemonResource::collection(Pokemon::orderBy('order','asc')->limit(10)->get());
+        $pokemons = PokemonResource::collection(Pokemon::orderBy('order','asc')->limit(100)->get());
         return $this->successResponse($pokemons,null,Response::HTTP_OK);
     }
 
