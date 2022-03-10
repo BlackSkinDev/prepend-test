@@ -79,4 +79,4 @@ While creating the app the following Assumptions were made
 - I also assumed is_order is a tinyInteger
 - I also implemented an artisan command that reads the pokemons csv data provided and import the data inside it into my db (I limited the pokemons returned to 100).
 - In the future, For nice user experience,Pagination can be implemented to easily navigate through the pokemons
-1
+
